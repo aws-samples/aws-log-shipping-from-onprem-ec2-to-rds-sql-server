@@ -45,7 +45,6 @@ EXEC @ReturnCode =  msdb.dbo.sp_add_job
 		@category_name=N'[Uncategorized (Local)]', 
 		@owner_login_name=N'sa', @job_id = @jobId OUTPUT
 IF (@@ERROR <> 0 OR @ReturnCode <> 0) GOTO QuitWithRollback
-/****** Object:  Step [Restore_Secondary]    Script Date: 4/5/2022 5:35:10 PM ******/
 EXEC @ReturnCode = msdb.dbo.sp_add_jobstep 
 		@job_id=@jobId, 
 		@step_name=@step_name, 
