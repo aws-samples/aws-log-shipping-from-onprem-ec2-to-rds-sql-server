@@ -1,0 +1,14 @@
+{
+    "primarySqlServer":"Primary SQL ServerName",
+    "primaryServerBackupFolder" :"C:\Backup_S3",
+    "secondarySqlServer" :"RDS SQL Server Name",
+    "databases":["DB_1","DB2"],
+    "s3BucketName" : "S3BucketName",
+    "s3BackupFolder" :"S3 Folder Name",
+    "awsSecretName" :"AWS Secret Name",
+    "awsRegion" :"AWS region",
+    "restoreJobLogfile" :"Log file location of the restore",
+    "backupLogFile" : "Log File location of Backup",
+    "timeoutinSeconds" :300,
+    "verifyIntervalSeconds" :30
+}
