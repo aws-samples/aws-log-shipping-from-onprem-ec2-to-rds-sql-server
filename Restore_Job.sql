@@ -3,8 +3,7 @@ GO
 BEGIN TRANSACTION
 
 /************* Provide  the Powershell Script location in this Block ********************************** 
-
-Eg: 
+Example: 
 DECLARE @script_location sysname ='C:\Logshippingscripts\Logshipping_Restore.ps1'
 
 */
@@ -12,9 +11,6 @@ DECLARE @script_location sysname ='C:\Logshippingscripts\Logshipping_Restore.ps1
 DECLARE @script_location sysname ='C:\Logshippingscripts\Logshipping_Restore.ps1' --- Replace the file location
 
 /********************************* End of Input Details *****************************************/
-
-
-
 
 DECLARE @job_name sysname = 'Logshipping_RDS_Secondary_Restore'
 DECLARE @owner_login_name sysname ='sa'
