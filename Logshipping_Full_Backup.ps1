@@ -25,7 +25,7 @@ function Write-LogshipLog {
 
 Import-Module SQLPS
 
-$backupinputs = Get-Content -Path $path -raw | % { $_.Replace('\', '\\') } | ConvertFrom-Json
+$backupinputs = Get-Content -Path $path -raw | ForEach-Object { $_.Replace('\', '\\') } | ConvertFrom-Json
 
 $primarySqlServer = $backupinputs.primarySqlServer 
 $primaryServerBackupFolder = $backupinputs.primaryServerBackupFolder
@@ -34,18 +34,17 @@ $backupLogFile = $backupinputs.backupLogFile
 
 
 foreach ($database in $databases) {
-        ### Loop through each database to perform a full backup ###
-        try {
-            $backupDBFileName =$database + ".bak"
-            $backpLocation = $primaryServerBackupFolder + "\" + $backupDBFileName
-            Write-LogshipLog -Level "INFO" -Message "Creating a full backup of $database to $BackupLocation"
-            Backup-SqlDatabase -ServerInstance "$primarySqlServer" -Database $database -BackupFile $backpLocation -Initialize
-            Write-LogshipLog -Level "INFO" -Message "SQL database backup completed."
-            }
-            catch [Exception] {
-            $msg = "Failed to backup $$database" + $_.Exception.Message + "`r`n"
-            Write-LogshipLog -Level "ERROR" -Message $msg
-            throw
+    ### Loop through each database to perform a full backup ###
+    try {
+        $backupDBFileName = $database + ".bak"
+        $backpLocation = $primaryServerBackupFolder + "\" + $backupDBFileName
+        Write-LogshipLog -Level "INFO" -Message "Creating a full backup of $database to $BackupLocation"
+        Backup-SqlDatabase -ServerInstance "$primarySqlServer" -Database $database -BackupFile $backpLocation -Initialize
+        Write-LogshipLog -Level "INFO" -Message "SQL database backup completed."
+    } catch [Exception] {
+        $msg = "Failed to backup $$database" + $_.Exception.Message + "`r`n"
+        Write-LogshipLog -Level "ERROR" -Message $msg
+        throw
            
     }
-    }
+}
