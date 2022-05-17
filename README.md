@@ -1,4 +1,4 @@
-## My Project
+aws-log-shipping-from-onprem-ec2-to-rds-sql-serve
 
 TODO: Fill this README out!
 
