@@ -36,7 +36,7 @@ $backupLogFile = $backupinputs.backupLogFile
 foreach ($database in $databases) {
     ### Loop through each database to perform a full backup ###
     try {
-        $backupDBFileName = $database + ".bak"
+        $backupDBFileName = $database + ".Bak"
         $backpLocation = $primaryServerBackupFolder + "\" + $backupDBFileName
         Write-LogshipLog -Level "INFO" -Message "Creating a full backup of $database to $BackupLocation"
         Backup-SqlDatabase -ServerInstance "$primarySqlServer" -Database $database -BackupFile $backpLocation -Initialize
