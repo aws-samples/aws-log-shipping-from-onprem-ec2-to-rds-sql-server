@@ -15,6 +15,7 @@ DECLARE @script_location sysname ='C:\Logshippingscripts\Logshipping_Restore.ps1
 DECLARE @job_name sysname = 'Logshipping_RDS_Secondary_Restore'
 DECLARE @owner_login_name sysname ='sa'
 DECLARE @step_name sysname ='Restore_Secondary'
+DECLARE @schedule_id NVARCHAR(250)
 DECLARE @ReturnCode INT
 SELECT @ReturnCode = 0
 DECLARE @command NVARCHAR(max)=N'$ErrorActionPreference ="Stop"
