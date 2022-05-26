@@ -36,6 +36,10 @@ These scripts needs to be saved in the source Database server and execute it in 
 
 The PowerShell script “Logshipping_Full_Backup.ps1”” takes the full backup of the user provided databases in the config file and “Logshipping_Restore.ps1 will restore the full backup and all the log backups that was taken in the source server and copied to an S3 bucket .These scripts can be scheduled via SQL server jobs using the job creation scripts (.sql).User needs to provide the source , destination and other details in the config file and the scripts will run in its schedule and the log backups from source database gets continuously applied to the destination database .
 
+Please refer this blog post for more details on this ,
+
+https://aws.amazon.com/blogs/database/use-native-sql-server-log-shipping-and-powershell-scripts-to-synchronize-data-to-amazon-rds-for-sql-server/
+
 
 
 ## Security
